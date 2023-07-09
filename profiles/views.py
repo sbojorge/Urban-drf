@@ -1,6 +1,7 @@
 from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from .models import Profile
 from .serializers import ProfileSerializer
+from urban_drf.permissions import IsOwnerOrReadOnly
 
 
 class ProfileList(ListAPIView):
@@ -18,5 +19,6 @@ class ProfileDetail(RetrieveUpdateAPIView):
     model = Profile
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [IsOwnerOrReadOnly]
 
 

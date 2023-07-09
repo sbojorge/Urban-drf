@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
     # Apps
     'profiles',
+    'posts',
 
     # Others
     'django_countries',

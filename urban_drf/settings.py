@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary-storage', # as per the documentation, in this order because cloudinary will be used only for media files
+    'cloudinary_storage', # as per the documentation, in this order because cloudinary will be used only for media files
     'cloudinary',
 
     # Apps

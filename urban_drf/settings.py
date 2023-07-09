@@ -56,7 +56,30 @@ INSTALLED_APPS = [
 
     # Apps
     'profiles',
+
+    # Others
+    'django_countries',
+    'tinymce',
 ]
+
+TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/9z25n8ixigw8dh0nx9nyhgmo9jd0kzbhfvr6sr2n42e0id51/tinymce/6/tinymce.min.js"
+TINYMCE_COMPRESSOR = False
+
+TINYMCE_DEFAULT_CONFIG = {
+  "theme": "silver",
+  "width": "900",
+  "height": "300",
+  "menubar":"format",
+  "toolbar":
+    "undo redo selectall | cut copy paste | styleselect | bold italic underline strikethrough | fontselect"
+    "fontsizeselect formatselect | alignleft aligncenter alignright alignjustify"
+    "numlist bullist checklist | forecolor backcolor emoticons | removeformat fullscreen",
+    
+  "plugins":
+    "emoticons fullscreen wordcount advlist lists checklist",
+  "selector": "textarea",
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

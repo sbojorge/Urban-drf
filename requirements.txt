@@ -3,6 +3,7 @@ cloudinary==1.33.0
 dj-database-url==2.0.0
 Django==3.2.20
 django-cloudinary-storage==0.3.0
+django-countries==7.5.1
 gunicorn==20.1.0
 Pillow==10.0.0
 psycopg2==2.9.6

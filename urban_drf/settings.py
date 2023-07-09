@@ -38,7 +38,7 @@ DEBUG = True # True means turn on which means in development
 
 ALLOWED_HOSTS = [
     '8000-sbojorge-urbandrf-0ms4vzrzzp2.ws-eu101.gitpod.io',
-    'urbandrf.herokuapp.com', 'localhost'
+    'urbandrf-a23e17dc5cc1.herokuapp.com', 'localhost'
 ]
 
 

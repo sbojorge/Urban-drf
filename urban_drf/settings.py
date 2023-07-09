@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary_storage', # as per the documentation, in this order because cloudinary will be used only for media files
     'cloudinary',
+    'rest_framework',
 
     # Apps
     'profiles',

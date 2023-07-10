@@ -16,15 +16,19 @@ import dj_database_url
 if os.path.exists('env.py'):
     import env
 
+from django.conf import settings
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL'),
+    'MAGIC_FILE_PATH': 'magic'
 }
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production

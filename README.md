@@ -66,6 +66,11 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 ![Epic_3](/static/images/agile/picture_4.png)
 
+------
+
+## Testing
+
+Follow this link for the documentation related to [tests](/TESTING.md)
 
 ## Deployment
 The application was early deployed following these steps:

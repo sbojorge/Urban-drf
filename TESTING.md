@@ -37,3 +37,42 @@ Green phase result:
 
 ![test_6](/static/images/test/picture_6.png)
 
+### Retrieve a post by id:
+
+Red phase result:
+
+![test_7](/static/images/test/picture_7.png)
+
+Green phase result:
+
+![test_8](/static/images/test/picture_8.png)
+
+### Can't retrieve a post by invalid id:
+
+Red phase result:
+
+![test_9](/static/images/test/picture_9.png)
+
+Green phase result:
+
+![test_10](/static/images/test/picture_10.png)
+
+### Can update an owned post:
+
+Red phase result:
+
+![test_11](/static/images/test/picture_11.png)
+
+Green phase result:
+
+![test_12](/static/images/test/picture_12.png)
+
+### Can't update someone else's post:
+
+Red phase result:
+
+![test_13](/static/images/test/picture_13.png)
+
+Green phase result:
+
+![test_14](/static/images/test/picture_14.png)

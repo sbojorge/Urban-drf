@@ -1,7 +1,8 @@
 # Automated test.
 
 Tests were run using the red-green-refactor process.
-As views were built using **concrete view classes** from drf (i.e ListCreateAPIView, which provieds both, the GET and POST requests), I comment/uncomment out the unnecessary snippet of code in the views for running one test at the time. For instance, for testing the read functionality in the PostListCreateView, I commented out the create function and uncommented out after the test.
+
+As views were built using **concrete view classes** from drf (i.e ListCreateAPIView, which provides both, the GET and POST requests), I comment/uncomment out the unnecessary snippet of code in the views for running one test at the time. For instance, for testing the read functionality in the PostListCreateView, I commented out the create function and uncommented out after the test.
 
 
 ## Tests in the posts app
@@ -18,7 +19,7 @@ Green phase result (notice that the create function in the view was commented ou
 
 ### Only authenticated users can create a post
 
-Red phase result (notice that the firs test was commented out):
+Red phase result (notice that the first test was commented out):
 
 ![test_3](/static/images/test/picture_3.png)
 

@@ -62,6 +62,10 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 ![Epic_1](/static/images/agile/picture_2.png)
 
+![Epic_2](/static/images/agile/picture_3.png)
+
+![Epic_3](/static/images/agile/picture_4.png)
+
 
 ## Deployment
 The application was early deployed following these steps:

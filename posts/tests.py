@@ -10,9 +10,10 @@ class PostListCreateViewTests(APITestCase):
         User.objects.create_user(username='ella', password='rabbit')
     
     def test_can_list_posts(self):
-        ella = User.objects.get(username='ella')
-        Post.objects.create(owner=ella, title='a city trip')
         client = APIClient()
+        ella = User.objects.get(username='ella')
+        client.login(username='ella', password='rabbit')
+        Post.objects.create(owner=ella, title='a city trip')
         response = client.get('/posts/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

@@ -35,6 +35,7 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,    
 }
+# Once in production it will send data only in json
 if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
         'rest_framework.renderers.JSONRenderer',
@@ -84,6 +85,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'corsheaders',
 
     # Apps
     'profiles',
@@ -114,6 +116,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 SITE_ID = 1
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -122,6 +125,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+ else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'urban_drf.urls'
 

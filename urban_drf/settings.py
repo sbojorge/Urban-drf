@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import re
 import os
 import dj_database_url
 if os.path.exists('env.py'):
@@ -62,7 +63,8 @@ DEBUG = True # True means turn on which means in development
 
 ALLOWED_HOSTS = [
     '8000-sbojorge-urbandrf-0ms4vzrzzp2.ws-eu101.gitpod.io',
-    'urbandrf-a23e17dc5cc1.herokuapp.com', 'localhost'
+    os.environ.get('ALLOWED_HOST'),
+    'localhost',
 ]
 
 
@@ -127,12 +129,9 @@ MIDDLEWARE = [
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
- else:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True

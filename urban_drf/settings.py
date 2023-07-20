@@ -34,7 +34,7 @@ REST_FRAMEWORK = {
     )],
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,    
+    'PAGE_SIZE': 10,
 }
 # Once in production it will send data only in json
 if 'DEV' not in os.environ:
@@ -59,7 +59,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # True means turn on which means in development
+DEBUG = True  # True means turn on which means in development
 
 ALLOWED_HOSTS = [
     '8000-sbojorge-urbandrf-0ms4vzrzzp2.ws-eu101.gitpod.io',
@@ -77,7 +77,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage', # as per the documentation, in this order because cloudinary will be used only for media files
+    # as per the documentation, in this order because cloudinary will be used only for media files
+    'cloudinary_storage',
     'cloudinary',
     'rest_framework',
     'rest_framework.authtoken',
@@ -102,18 +103,18 @@ TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/9z25n8ixigw8dh0nx9nyhgmo9jd0kzbhfvr6s
 TINYMCE_COMPRESSOR = False
 
 TINYMCE_DEFAULT_CONFIG = {
-  "theme": "silver",
-  "width": "900",
-  "height": "300",
-  "menubar":"format",
-  "toolbar":
+    "theme": "silver",
+    "width": "900",
+    "height": "300",
+    "menubar": "format",
+    "toolbar":
     "undo redo selectall | cut copy paste | styleselect | bold italic underline strikethrough | fontselect"
     "fontsizeselect formatselect | alignleft aligncenter alignright alignjustify"
     "numlist bullist checklist | forecolor backcolor emoticons | removeformat fullscreen",
-    
-  "plugins":
+
+    "plugins":
     "emoticons fullscreen wordcount advlist lists checklist",
-  "selector": "textarea",
+    "selector": "textarea",
 }
 
 SITE_ID = 1
@@ -128,8 +129,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    extracted_url = re.match(
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
@@ -166,7 +172,7 @@ WSGI_APPLICATION = 'urban_drf.wsgi.application'
 #         'default': {
 #             'ENGINE': 'django.db.backends.sqlite3',
 #             'NAME': BASE_DIR / 'db.sqlite3',
-#         }   
+#         }
 #     }
 # else:
 #     DATABASES = {
@@ -176,7 +182,7 @@ WSGI_APPLICATION = 'urban_drf.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
-    
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

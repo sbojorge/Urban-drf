@@ -12,7 +12,7 @@ class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=100, blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default-profile.256x256_lpdl87'
+        upload_to='images/', default='../default-user-circle.256x256_qkk4wi'
     )
     location = CountryField(blank_label='(select country)')
     cities = models.TextField(default="Your favorite cities are...")

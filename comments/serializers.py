@@ -5,6 +5,7 @@ from .models import Comment
 class CommentSerializer(serializers.ModelSerializer):
     """
     Creates a serializer for the Comment model
+    Adds extra fields when returning a list of comment instances
     """
     owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behavior
     profile_id = serializers.CharField(read_only=True, source='owner.profile.id')
@@ -22,3 +23,10 @@ class CommentSerializer(serializers.ModelSerializer):
             return True
         else:
             return False
+
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for the Comment model used in detail view
+    Automatically references the Post Id which the comment is associated with
+    """
+    post = serializers.CharField(read_only=True, source='post.id')

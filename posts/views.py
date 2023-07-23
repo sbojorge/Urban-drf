@@ -9,7 +9,6 @@ class PostListCreate(ListCreateAPIView):
     """
     Retrieves the list of existing posts and let the user create a new post
     """
-    model = Post
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
@@ -21,7 +20,6 @@ class PostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     """
     Retrieves a post by id and let the owner of the post to update/delet it
     """
-    model = Post
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]

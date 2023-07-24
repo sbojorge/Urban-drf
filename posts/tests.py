@@ -42,29 +42,29 @@ class PostRetrieveUpdateDestroyViewTests(APITestCase):
         )
             
     def test_can_retrieve_post_by_valid_id(self):
-        response = self.client.get('/posts/1')
+        response = self.client.get('/posts/1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_cant_retrieve_post_by_invalid_id(self):
-        response = self.client.get('/posts/15')
+        response = self.client.get('/posts/15/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_user_can_update_owned_post(self):
         self.client.login(username='ella', password='rabbit')
-        response = self.client.put('/posts/1', {'title': 'a game trip'})
+        response = self.client.put('/posts/1/', {'title': 'a game trip'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_user_cant_update_someoneelses_post(self):
         self.client.login(username='ella', password='rabbit')
-        response = self.client.put('/posts/2', {'title': 'a sport trip'})
+        response = self.client.put('/posts/2/', {'title': 'a sport trip'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
     
     def test_user_can_delete_owned_post(self):
         self.client.login(username='ella', password='rabbit')
-        response = self.client.delete('/posts/1')
+        response = self.client.delete('/posts/1/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
     
     def test_user_cant_delete_someoneelses_post(self):
         self.client.login(username='ella', password='rabbit')
-        response = self.client.delete('/posts/2')
+        response = self.client.delete('/posts/2/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

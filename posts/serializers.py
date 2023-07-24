@@ -7,6 +7,7 @@ class PostSerializer(serializers.ModelSerializer):
     """
     owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behavior
     is_owner = serializers.SerializerMethodField()
+    comments_count = serializers.ReadOnlyField()
         
     class Meta:
         model = Post

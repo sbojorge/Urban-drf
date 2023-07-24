@@ -1,6 +1,6 @@
 # Automated test.
 
-CRUD functionality was test using the red-green-refactor process.
+CRUD functionality was test in all the apps.
 
 Please find below the list of tests run in each app as well as the results:
 
@@ -15,3 +15,11 @@ Please find below the list of tests run in each app as well as the results:
 ![posts_report](/static/images/test/picture_3.png)
 
 ![posts_results](/static/images/test/picture_4.png)
+
+## Tests in the comments app
+
+![comments_results](/static/images/test/picture_5.png)
+
+![comments_results](/static/images/test/picture_6.png)
+
+

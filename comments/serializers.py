@@ -8,8 +8,8 @@ class CommentSerializer(serializers.ModelSerializer):
     Adds extra fields when returning a list of comment instances
     """
     owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behavior
-    profile_id = serializers.CharField(read_only=True, source='owner.profile.id')
-    profile_image = serializers.CharField(read_only=True, source='owner.profile.image.url')
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     is_owner = serializers.SerializerMethodField()
         
     class Meta:
@@ -29,4 +29,4 @@ class CommentDetailSerializer(CommentSerializer):
     Serializer for the Comment model used in detail view
     Automatically references the Post Id which the comment is associated with
     """
-    post = serializers.CharField(read_only=True, source='post.id')
+    post = serializers.ReadOnlyField(source='post.id')

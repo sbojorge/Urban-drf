@@ -39,9 +39,9 @@ class PostSerializer(serializers.ModelSerializer):
 
     # Validates the video size
     def validate_video(self, value):
-        if value.size > 1024 * 1024 * 25:
+        if value.size > 1024 * 1024 * 60:
             raise serializers.ValidationError(
-                'Video size larger than 25 MB!'
+                'Video size larger than 60 MB!'
             )
         return value
     

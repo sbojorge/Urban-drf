@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'profiles',
     'posts',
     'comments',
+    'likes',
 
     # Others
     'django_countries',

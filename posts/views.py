@@ -13,18 +13,22 @@ class PostListCreate(ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
-        comments_count = Count('comment', distinct=True)
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter
     ]
     ordering_fields = [
-        'comments_count'
-    ]    
+        'likes_count',
+        'comments_count',
+        'likes__created_on',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    
+
+
 class PostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     """
     Retrieves a post by id and let the owner of the post to update/delet it
@@ -32,6 +36,6 @@ class PostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
-        comments_count = Count('comment', distinct=True)
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
     ).order_by('-created_on')
-    

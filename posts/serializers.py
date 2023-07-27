@@ -10,6 +10,8 @@ class PostSerializer(serializers.ModelSerializer):
     owner = serializers.CharField(
         read_only=True, source='owner.username')  # Overrides the default owner's behavior
     is_owner = serializers.SerializerMethodField()
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
     like_id = serializers.SerializerMethodField()

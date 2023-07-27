@@ -12,6 +12,8 @@ class ProfileSerializer(CountryFieldMixin, serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField() # Add the is_owner field and its value to the serialized profile object
     posts_count = serializers.ReadOnlyField()
     following_id = serializers.SerializerMethodField()
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
 
     class Meta:
         model = Profile

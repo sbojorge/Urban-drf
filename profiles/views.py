@@ -13,14 +13,20 @@ class ProfileList(ListAPIView):
     """
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
-        posts_count=Count('owner__post', distinct=True)
+        posts_count=Count('owner__post', distinct=True),
+        followers_count = Count('owner__followed', distinct=True),
+        following_count = Count('owner__following', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend,
     ]
     ordering_fields = [
-        'posts_count'
+        'posts_count',
+        'followers_count',
+        'following_count',
+        'owner__followed__created_on',
+        'owner__following__created_on',
     ]
 
 

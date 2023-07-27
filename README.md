@@ -15,6 +15,7 @@ Below you can find the complete list of the libraries used for the development o
 * Django-cloudinary-storage: This Django package was used to provide Cloudinary storage for media (images and videos).
 * Django-countries: Used for providing a country field in the Profile model.
 * Django Rest Framework: For building the WEB API.
+* Django-filter: Used for applying filters based on a specific condition.
 * Django-TinyMCE: Used for adding a widget to render the TextField fields as a TinyMCE editor.
 * Gunicorn: Used to run Django on Heroku.
 * dj_database_url: A Django utility for using the DATABASE_URL environment variable.

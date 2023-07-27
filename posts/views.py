@@ -36,7 +36,6 @@ class PostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
-        posts_count = Count('owner__post', distinct=True),
         likes_count = Count('likes', distinct=True),
         comments_count = Count('comment', distinct=True)
     ).order_by('-created_on')

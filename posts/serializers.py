@@ -2,28 +2,30 @@ from rest_framework import serializers
 from .models import Post
 from likes.models import Like
 
+
 class PostSerializer(serializers.ModelSerializer):
     """
     Creates a serializer for the Post model
     """
-    owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behavior
+    owner = serializers.CharField(
+        read_only=True, source='owner.username')  # Overrides the default owner's behavior
     is_owner = serializers.SerializerMethodField()
+    posts_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
     like_id = serializers.SerializerMethodField()
-        
+
     class Meta:
         model = Post
         fields = '__all__'
-    
-    
+
     def get_is_owner(self, obj):
         request = self.context['request']
         if request.user == obj.owner:
             return True
         else:
             return False
-    
+
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -33,7 +35,7 @@ class PostSerializer(serializers.ModelSerializer):
             print(like)
             return like.id if like else None
         return None
-    
+
     # Validates the image size and dimensions
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 10:
@@ -57,4 +59,3 @@ class PostSerializer(serializers.ModelSerializer):
                 'Video size larger than 60 MB!'
             )
         return value
-    

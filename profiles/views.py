@@ -4,6 +4,7 @@ from .serializers import ProfileSerializer
 from urban_drf.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ProfileList(ListAPIView):
@@ -12,15 +13,16 @@ class ProfileList(ListAPIView):
     """
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
-        posts_count = Count('owner__post', distinct=True)
+        posts_count=Count('owner__post', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        DjangoFilterBackend,
     ]
     ordering_fields = [
         'posts_count'
     ]
-    
+
 
 class ProfileDetail(RetrieveUpdateAPIView):
     """
@@ -29,8 +31,5 @@ class ProfileDetail(RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        posts_count = Count('owner__post', distinct=True)
+        posts_count=Count('owner__post', distinct=True)
     ).order_by('-created_on')
-    
-
-

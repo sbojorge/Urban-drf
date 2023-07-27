@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Post
+from likes.models import Like
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -8,18 +9,30 @@ class PostSerializer(serializers.ModelSerializer):
     owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behavior
     is_owner = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
+    likes_count = serializers.ReadOnlyField()
+    like_id = serializers.SerializerMethodField()
         
     class Meta:
         model = Post
         fields = '__all__'
     
-    # Get the value of the is_owner field
+    
     def get_is_owner(self, obj):
         request = self.context['request']
         if request.user == obj.owner:
             return True
         else:
             return False
+    
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                owner=user, post=obj
+            ).first()
+            print(like)
+            return like.id if like else None
+        return None
     
     # Validates the image size and dimensions
     def validate_image(self, value):

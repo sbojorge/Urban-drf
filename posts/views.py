@@ -13,15 +13,15 @@ class PostListCreate(ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
-        likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        likes_count = Count('likes', distinct=True),
+        comments_count = Count('comment', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter
     ]
     ordering_fields = [
-        'likes_count',
         'comments_count',
+        'likes_count',
         'likes__created_on',
     ]
 
@@ -36,6 +36,6 @@ class PostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
-        likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        likes_count = Count('likes', distinct=True),
+        comments_count = Count('comment', distinct=True)
     ).order_by('-created_on')

@@ -3,15 +3,22 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
 from urban_drf.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CommentListCreate(ListCreateAPIView):
     """
     Retrieves the list of existing comments and let the authenticated user create a new comment
     """
-    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
+    queryset = Comment.objects.all()
+    filter_backends = [
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'post'
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

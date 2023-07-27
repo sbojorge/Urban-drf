@@ -9,7 +9,8 @@ class ProfileSerializer(CountryFieldMixin, serializers.ModelSerializer):
     """
     owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behaviour
     is_owner = serializers.SerializerMethodField() # Add the is_owner field and its value to the serialized profile object
-    
+    posts_count = serializers.ReadOnlyField()
+
     class Meta:
         model = Profile
         fields = '__all__'

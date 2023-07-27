@@ -1,12 +1,13 @@
-from rest_framework import generics, permissions
-from drf_api.permissions import IsOwnerOrReadOnly
+from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView
+from rest_framework import permissions
+from urban_drf.permissions import IsOwnerOrReadOnly
 from .models import Follower
 from .serializers import FollowerSerializer
 
 
-class FollowerList(generics.ListCreateAPIView):
+class FollowerList(ListCreateAPIView):
     """
-    List all followers, i.e. all instances of a user
+    List all followers instances of a user
     following another user'.
     Create a follower, i.e. follow a user if logged in.
     Perform_create: associate the current logged in user with a follower.
@@ -19,7 +20,7 @@ class FollowerList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class FollowerDetail(generics.RetrieveDestroyAPIView):
+class FollowerDetail(RetrieveDestroyAPIView):
     """
     Retrieve a follower
     No Update view, as we either follow or unfollow users

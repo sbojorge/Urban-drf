@@ -24,7 +24,7 @@ class PostListCreate(ListCreateAPIView):
     ]
     filterset_fields = [
         # user feed
-        # 'owner__followed__owner__profile',
+        'owner__followed__owner__profile',
         # user liked  posts
         'likes__owner__profile',
         # user posts

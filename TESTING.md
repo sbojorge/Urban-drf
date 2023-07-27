@@ -22,4 +22,10 @@ Please find below the list of tests run in each app as well as the results:
 
 ![comments_results](/static/images/test/picture_6.png)
 
+## Tests in the likes app
+
+![likes_results](/static/images/test/picture_7.png)
+
+![likes_results](/static/images/test/picture_8.png)
+
 

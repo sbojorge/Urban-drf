@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'comments',
     'likes',
     'followers',
+    'contacts',
 
     # Others
     'django_countries',

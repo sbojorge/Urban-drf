@@ -19,7 +19,7 @@ class ContactListCreate(ListCreateAPIView):
 
 class ContactDetail(RetrieveUpdateDestroyAPIView):
     """
-    Retrieves a contact by id and let the owner to update/delet it.
+    Retrieves a contact by id and let the admin user to update/delete it.
     """
     permission_classes = [permissions.IsAdminUser]
     serializer_class = ContactSerializer

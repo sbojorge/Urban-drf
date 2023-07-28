@@ -23,7 +23,7 @@ class FollowerListCreateViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_authenticated_user_can_follow(self):
-        damie = User.objects.get(username='damien')
+        damien = User.objects.get(username='damien')
         self.client.login(username='damien', password='cat')
         response = self.client.post('/followers/', {'owner': 2, 'followed': 1})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

@@ -18,20 +18,23 @@ Please find below the list of tests run in each app as well as the results:
 
 ## Tests in the comments app
 
-![comments_results](/static/images/test/picture_5.png)
+![comments_report](/static/images/test/picture_5.png)
 
 ![comments_results](/static/images/test/picture_6.png)
 
 ## Tests in the likes app
 
-![likes_results](/static/images/test/picture_7.png)
+![likes_report](/static/images/test/picture_7.png)
 
 ![likes_results](/static/images/test/picture_8.png)
 
 ## Tests in the followers app
 
-![followers_results](/static/images/test/picture_9.png)
+![followers_report](/static/images/test/picture_9.png)
 
 ![followers_results](/static/images/test/picture_10.png)
 
+## Tests in the contacts app
+
+![contacts_results](/static/images/test/picture_11.png)
 

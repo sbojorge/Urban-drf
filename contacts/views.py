@@ -17,7 +17,7 @@ class ContactListCreate(ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class ContactDetail(etrieveUpdateDestroyAPIView):
+class ContactDetail(RetrieveUpdateDestroyAPIView):
     """
     Retrieves a contact by id and let the owner to update/delet it.
     """

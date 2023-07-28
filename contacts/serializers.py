@@ -18,7 +18,7 @@ class ContactSerializer(serializers.ModelSerializer):
         
         return naturaltime(obj.created_on)
 
-    def get_updated_at(self, obj):
+    def get_updated_on(self, obj):
         
         return naturaltime(obj.updated_on)
 

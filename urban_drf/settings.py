@@ -99,7 +99,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'contacts',
-
+    
     # Others
     'django_countries',
     'tinymce',

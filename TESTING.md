@@ -28,4 +28,10 @@ Please find below the list of tests run in each app as well as the results:
 
 ![likes_results](/static/images/test/picture_8.png)
 
+## Tests in the followers app
+
+![followers_results](/static/images/test/picture_9.png)
+
+![followers_results](/static/images/test/picture_10.png)
+
 

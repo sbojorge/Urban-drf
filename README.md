@@ -49,7 +49,7 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 ## Database structure
 
-The entity relationship diagram was built using Lucidchart (when finished export the ERD and paste it here).
+![db](/static/images/erd/picture_1.png)
 
 ---
 

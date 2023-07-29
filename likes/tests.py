@@ -22,23 +22,23 @@ class LikeListCreateViewTests(APITestCase):
         ella = User.objects.get(username='ella')
         post = Post.objects.get(id=1)
         self.client.login(username='ella', password='rabbit')
-        Like.objects.create(owner=ella, post= post)
+        Like.objects.create(owner=ella, post=post)
         response = self.client.get('/likes/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_unauthenticated_user_cant_create_like(self):
         ella = User.objects.get(username='ella')
         post = Post.objects.get(id=1)
-        Like.objects.create(owner=ella, post= post)
-        response = self.client.post('/likes/',{'id': 2})
+        Like.objects.create(owner=ella, post=post)
+        response = self.client.post('/likes/', {'id': 2})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_authenticated_user_can_create_like(self):
         ella = User.objects.get(username='ella')
         self.client.login(username='ella', password='rabbit')
         post = Post.objects.get(id=2)
-        Like.objects.create(owner=ella, post= post)
-        response = self.client.post('/likes/',{'post': 1})
+        Like.objects.create(owner=ella, post=post)
+        response = self.client.post('/likes/', {'post': 1})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
 
@@ -55,9 +55,8 @@ class LikeDetailViewTests(APITestCase):
         post_d = Post.objects.create(
             owner=damien, title='a food city trip'
         )
-        Like.objects.create(owner=ella, post= post_d)
-        Like.objects.create(owner=damien, post= post_e)
-
+        Like.objects.create(owner=ella, post=post_d)
+        Like.objects.create(owner=damien, post=post_e)
 
     def test_can_retrieve_like_by_valid_id(self):
         response = self.client.get('/likes/1/')
@@ -71,7 +70,7 @@ class LikeDetailViewTests(APITestCase):
         self.client.login(username='damien', password='cat')
         response = self.client.delete('/likes/2/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-    
+
     def test_user_cant_delete_someoneelses_like(self):
         self.client.login(username='damien', password='cat')
         response = self.client.delete('/likes/1/')

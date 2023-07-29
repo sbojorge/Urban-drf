@@ -38,3 +38,11 @@ Please find below the list of tests run in each app as well as the results:
 
 ![contacts_results](/static/images/test/picture_11.png)
 
+# Python code
+
+All the apps were validated using the CI Python Linter validator.
+
+Warnings related to trailing space, not new line, line too long were fixed except when concerning imports at the top of files.
+for the rest the final result is All clear, no errors found.
+
+![validator_results](/static/images/test/picture_12.png)

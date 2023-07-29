@@ -1,4 +1,4 @@
-from rest_framework.generics import  ListCreateAPIView, RetrieveDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView
 from rest_framework import permissions
 from urban_drf.permissions import IsOwnerOrReadOnly
 from .models import Like

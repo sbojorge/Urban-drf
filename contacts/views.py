@@ -7,7 +7,8 @@ from .serializers import ContactSerializer
 
 class ContactListCreate(ListCreateAPIView):
     """
-    Retrieves the list of contacts and and let the authenticated user create a contact.
+    Retrieves the list of contacts and and let the authenticated
+    user create a contact.
     """
     serializer_class = ContactSerializer
     permission_classes = [IsOwnerOrReadOnly]

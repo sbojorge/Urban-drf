@@ -31,6 +31,3 @@ class ContactListCreateViewTests(APITestCase):
         ella = User.objects.get(username='ella')
         response = self.client.post('/contacts/1/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-
-    

@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
     Creates a serializer for the Post model
     """
     owner = serializers.CharField(
-        read_only=True, source='owner.username')  # Overrides the default owner's behavior
+        read_only=True, source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')

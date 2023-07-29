@@ -6,10 +6,11 @@ from .models import Follower
 class FollowerSerializer(serializers.ModelSerializer):
     """
     Serializer for the Follower model
-    Create method handles the unique constraint on 'owner' and 'followed'
     """
-    owner = serializers.CharField(read_only=True, source='owner.username') # Overrides the default owner's behaviour
-    followed_name = serializers.CharField(read_only=True, source='followed.username')
+    owner = serializers.CharField(
+        read_only=True, source='owner.username')
+    followed_name = serializers.CharField(
+        read_only=True, source='followed.username')
 
     class Meta:
         model = Follower

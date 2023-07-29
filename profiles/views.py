@@ -14,8 +14,8 @@ class ProfileList(ListAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
-        followers_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True)
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter,
@@ -36,12 +36,14 @@ class ProfileList(ListAPIView):
 
 class ProfileDetail(RetrieveUpdateAPIView):
     """
-    Retrieves a single profile by its id and let the user make modifications to the profile
+    Retrieves a single profile by its id and let the user make modifications
+    to the profile
     """
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
-        followers_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True)
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True)
     ).order_by('-created_on')
+

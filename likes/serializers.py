@@ -9,7 +9,7 @@ class LikeSerializer(serializers.ModelSerializer):
     The create method handles the unique constraint on 'owner' and 'post'
     """
     owner = serializers.CharField(
-        read_only=True, source='owner.username')  # Overrides the default owner's behavior
+        read_only=True, source='owner.username')
 
     class Meta:
         model = Like

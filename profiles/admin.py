@@ -5,9 +5,11 @@ from tinymce.widgets import TinyMCE
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    formfield_overrides= {
+    formfield_overrides = {
         models.TextField: {'widget': TinyMCE()}
     }
 
+
 admin.site.register(Profile, ProfileAdmin)
+
 

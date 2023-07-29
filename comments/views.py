@@ -8,7 +8,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 class CommentListCreate(ListCreateAPIView):
     """
-    Retrieves the list of existing comments and let the authenticated user create a new comment
+    Retrieves the list of existing comments and let the authenticated
+    user create a new comment
     """
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
@@ -22,6 +23,7 @@ class CommentListCreate(ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class CommentDetail(RetrieveUpdateDestroyAPIView):
     """

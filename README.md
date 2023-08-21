@@ -124,7 +124,7 @@ In settings.py:
 - Add corsheaders middleware at the top of the MIDDLEWARE
 - Set the ALLOWED_ORIGINS for the network requests made to the server
 - Enable sending cookies in cross-origin requests for user's authentication functionality
-- Set the DEBUG value to True
+- Set the DEBUG value to False
 
 ### Forking
 
@@ -152,9 +152,7 @@ I'll develop the one that I use.
 
 - On your machine, open your text editor, go to the Command palette and click on Git Clone.
 
-- Past the URL, hit enter and choose a folder to save the repository.
-
-   
+- Past the URL, hit enter and choose a folder to save the repository.   
 
 ---
 

@@ -15,7 +15,7 @@ class Profile(models.Model):
         upload_to='images/', default='../default-user-circle.256x256_qkk4wi'
     )
     location = CountryField(blank_label='(select country)')
-    cities = models.TextField(default="Your favorite cities are...")
+    cities = models.TextField(default="My favorite cities are...")
     content = models.TextField(
         default='What kind of urban adventurer are you (food & drink lover,'
                 'festival, sportif, wellness, etc)?'

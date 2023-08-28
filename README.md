@@ -63,7 +63,6 @@ Below you can find the complete list of the libraries used for the development o
 - Django-cloudinary-storage: This Django package was used to provide Cloudinary storage for media (images and videos).
 - Django-countries: Used for providing a country field in the Profile model.
 - Django-phonenumber-field: Used to validate, pretty print and convert phone numbers.
-- Django-cities-light: Used for providing the user with city, country, subregion, region/state in the service model. 
 - Django Rest Framework: For building the WEB API.
 - Django-filter: Used for applying filters based on a specific condition.
 - Django-TinyMCE: Used for adding a widget to render the TextField fields as a TinyMCE editor.

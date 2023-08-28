@@ -91,6 +91,8 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'corsheaders',
     'django_filters',
+    'phonenumber_field',
+    'cities_light',
 
     # Apps
     'profiles',
@@ -99,6 +101,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'contacts',
+    'services',
     
     # Others
     'django_countries',

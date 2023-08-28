@@ -92,8 +92,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'phonenumber_field',
-    'cities_light',
-
+    
     # Apps
     'profiles',
     'posts',

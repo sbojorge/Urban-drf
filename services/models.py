@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -20,12 +21,12 @@ class Service(models.Model):
         default='SELECT_A_SERVICE_CATEGORY')
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
+    country = CountryField(blank_label='(select country)', blank=True)
+    city = models.CharField(max_length=100, blank=True)
     image = models.ImageField(
         upload_to='images/', default='../handshake.256x176_vv06fu',
         blank=True
     )
-    country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True)
-    city = models.ForeignKey('cities_light.City', on_delete=models.SET_NULL, null=True, blank=True)
     phone_number = PhoneNumberField(blank=True)
     email = models.EmailField(max_length=255, blank=True)
     website = models.URLField(max_length=200, blank=True)

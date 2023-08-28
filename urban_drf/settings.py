@@ -90,10 +90,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
-    'django_filters',
-    'phonenumber_field',
-    'cities_light',
-    
+    'django_filters',    
+        
     # Apps
     'profiles',
     'posts',
@@ -106,6 +104,7 @@ INSTALLED_APPS = [
     # Others
     'django_countries',
     'tinymce',
+    'phonenumber_field',
 ]
 
 TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/9z25n8ixigw8dh0nx9nyhgmo9jd0kzbhfvr6sr2n42e0id51/tinymce/6/tinymce.min.js"

@@ -1,8 +1,9 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework import permissions
+from rest_framework import permissions, filters
 from .models import Service
 from .serializers import ServiceSerializer
 from urban_drf.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ServiceListCreate(ListCreateAPIView):
@@ -12,6 +13,12 @@ class ServiceListCreate(ListCreateAPIView):
     serializer_class = ServiceSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Service.objects.all()
+    filter_backends = [
+        filters.SearchFilter,
+    ]    
+    search_fields = [
+        'country', 'city', 'category'
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

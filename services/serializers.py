@@ -9,6 +9,8 @@ class ServiceSerializer(CountryFieldMixin, serializers.ModelSerializer):
     """
     owner = serializers.CharField(read_only=True, source='owner.username')
     is_owner = serializers.SerializerMethodField()
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    service_image = serializers.ReadOnlyField(source='owner.service.image.url')
     
     class Meta:
         model = Service

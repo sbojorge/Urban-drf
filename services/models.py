@@ -34,6 +34,12 @@ class Service(models.Model):
     instagram_link = models.URLField(max_length=200, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.owner}'s service offering details"
     
 
 

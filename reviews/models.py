@@ -11,7 +11,7 @@ class Review (models.Model):
     service = models.ForeignKey(
         Service, on_delete=models.CASCADE, related_name='reviews'
     )
-    content = models.TextField()
+    content = models.TextField(blank=True)
     rating = models.IntegerField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

@@ -161,7 +161,7 @@ I'll develop the one that I use.
 
 ### Media
 
-- Images for the default profile, default image post and default video post come from [Iconduck](https://iconduck.com/).
+- Default images come from [Iconduck](https://iconduck.com/).
 
 ### Documentation
 
@@ -171,3 +171,4 @@ I'll develop the one that I use.
 
 - The IsOwnerOrReadOnly class comes from [Custom Permissions Examples](https://www.django-rest-framework.org/api-guide/permissions/#api-reference).
 - The video extension validation in the Post model was inspired on [Django Media Files](https://www.youtube.com/watch?v=UcUm82jWeKc)
+- Advised by my mentor, the implementation of the average calculation was inspired from [How to calculate average of some field in Django models and sent it to rest API](https://django.fun/en/qa/16172/)

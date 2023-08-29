@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 from django.core.validators import FileExtensionValidator
+from django_countries.fields import CountryField
 
 ext_validator = FileExtensionValidator(['mp4', 'webm', 'flv', 'mov', 'ogv',
                                         '3gp', '3g2', 'wmv', 'mpeg', 'mkv',
@@ -14,6 +15,8 @@ class Post(models.Model):
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    city = models.CharField(max_length=200, blank=True)
+    country = CountryField(blank_label='(select country)', blank=True)
     image = models.ImageField(
         upload_to='images/', default='../old-time-camera.512x422_iwlbmx',
         blank=True

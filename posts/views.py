@@ -31,7 +31,7 @@ class PostListCreate(ListCreateAPIView):
         'owner__profile',
     ]
     search_fields = [
-        'owner__username', 'title'
+        'city', 'country', 'title', 'owner__username'
     ]
     ordering_fields = [
         'likes_count',

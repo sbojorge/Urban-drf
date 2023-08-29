@@ -1,9 +1,10 @@
 from rest_framework import serializers
 from .models import Post
 from likes.models import Like
+from django_countries.serializers import CountryFieldMixin
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(CountryFieldMixin,serializers.ModelSerializer):
     """
     Creates a serializer for the Post model
     """

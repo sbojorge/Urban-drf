@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'followers',
     'contacts',
     'services',
+    'reviews',
     
     # Others
     'django_countries',

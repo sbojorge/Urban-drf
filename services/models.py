@@ -39,7 +39,7 @@ class Service(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return f"{self.owner}'s service offering details"
+        return f'{self.id} {self.name}'
     
 
 

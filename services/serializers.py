@@ -11,6 +11,8 @@ class ServiceSerializer(CountryFieldMixin, serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     service_image = serializers.ReadOnlyField(source='owner.service.image.url')
+    reviews_count = serializers.ReadOnlyField()
+    average_rating = serializers.ReadOnlyField()
     
     class Meta:
         model = Service

@@ -4,6 +4,7 @@ from .models import Service
 from .serializers import ServiceSerializer
 from urban_drf.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
+from django.db.models import Count, Avg
 
 
 class ServiceListCreate(ListCreateAPIView):
@@ -12,7 +13,10 @@ class ServiceListCreate(ListCreateAPIView):
     """
     serializer_class = ServiceSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Service.objects.all()
+    queryset = Service.objects.annotate(
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
+    ).order_by('-created_on')    
     filter_backends = [
         filters.SearchFilter,
     ]    
@@ -29,4 +33,7 @@ class ServiceDetailList(RetrieveUpdateDestroyAPIView):
     """
     serializer_class = ServiceSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Service.objects.all()
+    queryset = Service.objects.annotate(
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
+    ).order_by('-created_on')

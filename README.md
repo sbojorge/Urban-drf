@@ -29,7 +29,8 @@ Ready-for-development epics were stored in the product backlog before starting a
 I worked 1 epic x sprint.
 User stories that couldn't be completed were placed back in the product backlog and on "No status" category of the project for eventually being included in a next sprint.
 
-- Project, for the Kanban board.
+- Project, for the Kanban board. You can access the project [here](https://github.com/users/sbojorge/projects/12).
+This project holds epics of 2 repositories: Urban-drf (the backend repo) and Urbantrip (the frontend repo).
 
 Epics were assigned to the "To-do" status and move to "In progress" or "Done" status as the tasks in the user stories were completed.
 
@@ -48,6 +49,17 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 ---
 
 ## Database structure
+
+The user is at the center of the structure and it's the start point of 4 tables:
+- Profile
+- Post
+- Service and
+- Contact
+
+4 more tables are complete the schema:
+- Followers, in-hand with Profile
+- Like and Comment, relying on Post and
+- Review, with the Service table.
 
 ![db](/static/images/erd/picture_1.png)
 

@@ -14,11 +14,10 @@ class Service(models.Model):
         ('RESTAURANT', 'Restaurant'),
         ('TRAVEL_AGENCY', 'Travel agency'),
         ('OTHER', 'Other'),
-        ('SELECT_A_SERVICE_CATEGORY','Select a service category')
-    ]    
-    category = models.CharField(max_length=100,
-        choices=SERVICE_CATEGORY,
-        default='SELECT_A_SERVICE_CATEGORY')
+        ('SELECT_A_SERVICE_CATEGORY', 'Select a service category')
+    ]
+    category = models.CharField(max_length=100, choices=SERVICE_CATEGORY,
+                                default='SELECT_A_SERVICE_CATEGORY')
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     country = CountryField(blank_label='(select country)', blank=True)
@@ -40,7 +39,3 @@ class Service(models.Model):
 
     def __str__(self):
         return f'{self.id} {self.name}'
-    
-
-
-

@@ -24,6 +24,7 @@ class ReviewListCreate(ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
 class ReviewDetail(RetrieveUpdateDestroyAPIView):
     """
     Retrieves a review by id and let its owner update/delete it

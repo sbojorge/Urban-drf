@@ -16,16 +16,17 @@ class ServiceListCreate(ListCreateAPIView):
     queryset = Service.objects.annotate(
         reviews_count=Count('reviews', distinct=True),
         average_rating=Avg('reviews__rating')
-    ).order_by('-created_on')    
+    ).order_by('-created_on')
     filter_backends = [
         filters.SearchFilter,
-    ]    
+    ]
     search_fields = [
         'country', 'city', 'category'
     ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class ServiceDetailList(RetrieveUpdateDestroyAPIView):
     """

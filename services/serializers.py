@@ -13,11 +13,10 @@ class ServiceSerializer(CountryFieldMixin, serializers.ModelSerializer):
     service_image = serializers.ReadOnlyField(source='owner.service.image.url')
     reviews_count = serializers.ReadOnlyField()
     average_rating = serializers.ReadOnlyField()
-    
+
     class Meta:
         model = Service
         fields = '__all__'
-
 
     def get_is_owner(self, obj):
         request = self.context['request']

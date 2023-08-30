@@ -8,9 +8,8 @@ class Review (models.Model):
     Review model for storing user's reviews and ratings in the database
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    service = models.ForeignKey(
-        Service, on_delete=models.CASCADE, related_name='reviews'
-    )
+    service = models.ForeignKey(Service, on_delete=models.CASCADE,
+                                related_name='reviews')
     content = models.TextField(blank=True)
     rating = models.IntegerField()
     created_on = models.DateTimeField(auto_now_add=True)

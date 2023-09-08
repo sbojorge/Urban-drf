@@ -29,7 +29,7 @@ Ready-for-development epics were stored in the product backlog before starting a
 I worked 1 epic x sprint.
 User stories that couldn't be completed were placed back in the product backlog and on "No status" category of the project for eventually being included in a next sprint.
 
-- Project, for the Kanban board. You can access the project [here](https://github.com/users/sbojorge/projects/12).
+- Project, for the Kanban board.<br> You can access the project [here](https://github.com/users/sbojorge/projects/12).
 This project holds epics of 2 repositories: Urban-drf (the backend repo) and Urbantrip (the frontend repo).
 
 Epics were assigned to the "To-do" status and move to "In progress" or "Done" status as the tasks in the user stories were completed.
@@ -46,17 +46,17 @@ Epics were assigned to the "To-do" status and move to "In progress" or "Done" st
 
 ![Epic_4](/static/images/agile/picture_5.png)
 
----
+!---
 
 ## Database structure
 
-The user is at the center of the structure and it's the start point of 4 tables:
+The user model is at the center of the structure and it's the starting point of 4 tables:
 - Profile
 - Post
 - Service and
 - Contact
 
-4 more tables are complete the schema:
+4 more tables complete the schema:
 - Followers, in-hand with Profile
 - Like and Comment, relying on Post and
 - Review, with the Service table.
@@ -77,7 +77,6 @@ Below you can find the complete list of the libraries used for the development o
 - Django-phonenumber-field: Used to validate, pretty print and convert phone numbers.
 - Django Rest Framework: For building the WEB API.
 - Django-filter: Used for applying filters based on a specific condition.
-- Django-TinyMCE: Used for adding a widget to render the TextField fields as a TinyMCE editor.
 - Gunicorn: Used to run Django on Heroku.
 - dj_database_url: A Django utility for using the DATABASE_URL environment variable.
 - Pillow: This Python library was used for image processing.

@@ -17,9 +17,7 @@ class Profile(models.Model):
     location = CountryField(blank_label='(select country)')
     cities = models.TextField(default="My favorite cities are...")
     content = models.TextField(
-        default='What kind of urban adventurer are you (food & drink lover,'
-                'festival, sportif, wellness, etc)?'
-                'Must visit cities, places to avoid, etc'
+        default='A bit more about me...'
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

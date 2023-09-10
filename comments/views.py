@@ -12,7 +12,7 @@ class CommentListCreate(ListCreateAPIView):
     user create a new comment
     """
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.all()
     filter_backends = [
         DjangoFilterBackend,
